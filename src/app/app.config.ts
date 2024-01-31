@@ -1,8 +1,11 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
+import { TitleStrategy, provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
+import { RouteTitleStrategy } from './route-title.strategy';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)],
+  providers: [
+    provideRouter(routes, withComponentInputBinding()),
+    { provide: TitleStrategy, useClass: RouteTitleStrategy },
+  ],
 };
