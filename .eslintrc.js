@@ -1,0 +1,163 @@
+module.exports = {
+  root: true,
+  overrides: [
+    {
+      files: ['*.ts'],
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:@angular-eslint/recommended',
+        'plugin:@angular-eslint/template/process-inline-templates',
+        'plugin:prettier/recommended'
+      ],
+      plugins: ['@typescript-eslint', 'tailwindcss'],
+      parserOptions: {
+        ecmaVersion: 2020,
+        project: true,
+        tsconfigRootDir: __dirname,
+      },
+      rules: {
+        '@angular-eslint/directive-selector': [
+          'error',
+          {
+            type: 'attribute',
+            prefix: 'app',
+            style: 'camelCase',
+          },
+        ],
+        '@angular-eslint/component-selector': [
+          'error',
+          {
+            type: 'element',
+            prefix: 'app',
+            style: 'kebab-case',
+          },
+        ],
+        'keyword-spacing': 'error',
+        'no-console': ['error', { allow: ['error', 'warn'] }],
+        'no-debugger': 'warn',
+        'quote-props': ['error', 'as-needed'],
+        '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+        '@typescript-eslint/explicit-function-return-type': [
+          'off',
+          {
+            allowExpressions: true,
+          },
+        ],
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/interface-name-prefix': 'off',
+        '@typescript-eslint/no-empty-interface': [
+          'error',
+          {
+            allowSingleExtends: true,
+          },
+        ],
+        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-inferrable-types': 'error',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unused-vars': 'error',
+        '@typescript-eslint/no-useless-constructor': 'error',
+        '@typescript-eslint/semi': 'error',
+        '@typescript-eslint/typedef': [
+          'error',
+          {
+            arrowParameter: false,
+          },
+        ],
+        'object-curly-spacing': ['error', 'always'],
+        'prefer-const': 'error',
+        'no-else-return': 'error',
+        'no-var': 'error',
+        '@typescript-eslint/prefer-for-of': 'error',
+        '@typescript-eslint/type-annotation-spacing': 'error',
+        '@typescript-eslint/unified-signatures': 'error',
+        'arrow-body-style': 'error',
+        curly: 'error',
+        'new-parens': 'error',
+        'no-multiple-empty-lines': ['error', { max: 1 }],
+        'no-new-wrappers': 'error',
+        'no-trailing-spaces': 'error',
+        'object-shorthand': 'error',
+        'one-var': ['error', 'never'],
+        'space-before-function-paren': 'off',
+        'space-before-blocks': ['error', 'always'],
+        'space-in-parens': 'error',
+        'no-empty': 'error',
+        'no-fallthrough': 'error',
+        'padding-line-between-statements': [
+          'error',
+          { blankLine: 'always', prev: '*', next: 'return' },
+          { blankLine: 'always', prev: '*', next: 'continue' },
+          { blankLine: 'always', prev: '*', next: 'if' },
+          { blankLine: 'always', prev: 'if', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'multiline-const' },
+          { blankLine: 'always', prev: 'multiline-const', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'multiline-expression' },
+          { blankLine: 'always', prev: 'multiline-expression', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'multiline-let' },
+          { blankLine: 'always', prev: 'multiline-let', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'switch' },
+          { blankLine: 'always', prev: 'switch', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'try' },
+          { blankLine: 'always', prev: 'try', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'class' },
+          { blankLine: 'always', prev: 'class', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'while' },
+          { blankLine: 'always', prev: 'while', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'for' },
+          { blankLine: 'always', prev: 'for', next: '*' },
+          { blankLine: 'always', prev: '*', next: 'do' },
+          { blankLine: 'always', prev: 'do', next: '*' },
+        ],
+        'prefer-template': 'error',
+        'no-multi-spaces': 'error',
+        'no-unused-expressions': 'error',
+        'max-depth': ['error', 3],
+        'no-duplicate-imports': 'error',
+        '@typescript-eslint/member-ordering': [
+          'error',
+          {
+            default: [],
+            interfaces: {
+              memberTypes: ['signature', 'field', 'constructor', 'method'],
+              order: 'alphabetically',
+            },
+            typeLiterals: {
+              memberTypes: ['signature', 'field', 'constructor', 'method'],
+              order: 'alphabetically',
+            },
+          },
+        ],
+        'no-shadow': 'off',
+        '@typescript-eslint/no-shadow': ['error', { ignoreTypeValueShadow: true }],
+        'sort-keys': 'error',
+        'comma-spacing': 'error',
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/unbound-method": "off",
+        'tailwindcss/classnames-order': 'error',
+        'tailwindcss/enforces-negative-arbitrary-values': 'error',
+        'tailwindcss/enforces-shorthand': 'error',
+        'tailwindcss/migration-from-tailwind-2': 'error',
+        'tailwindcss/no-arbitrary-value': 'off',
+        'tailwindcss/no-custom-classname': 'off',
+        'tailwindcss/no-contradicting-classname': 'error',
+      },
+    },
+    {
+      files: ['*.html'],
+      extends: [
+        'plugin:@angular-eslint/template/recommended',
+        'plugin:@angular-eslint/template/accessibility'
+      ],
+      rules: {},
+    },
+    {
+      files: ["*.html"],
+      excludedFiles: ["*inline-template-*.component.html"],
+      extends: ["plugin:prettier/recommended"],
+      rules: {
+        "prettier/prettier": ["error", { parser: "angular" }]
+      }
+    }
+  ],
+};
