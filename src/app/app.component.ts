@@ -8,6 +8,4 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss',
   templateUrl: './app.component.html',
 })
-export class AppComponent {
-  title = 'quizz';
-}
+export class AppComponent {}
