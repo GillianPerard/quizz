@@ -1,0 +1,5 @@
+.loader {
+  border-width: 3px;
+  border-radius: 50%;
+  @apply inline-block box-border border-gray-300 border-b-yellow-400 border-solid animate-spin;
+}
