@@ -1,0 +1,33 @@
+<div id="logo" class="flex justify-center items-center">
+  <img ngSrc="assets/angular.svg" alt="Logo Angular" width="78" height="78" />
+</div>
+<div
+  id="title"
+  class="bg-white rounded-lg max-w-3xl flex flex-col justify-center items-center mx-auto p-4 big-shadow w-full">
+  @if (isLoading() || questions().length) {
+    <h5>{{ questions().length }} questions</h5>
+    <h1 class="mt-2 text-center">Mon test technique</h1>
+    <a
+      [routerLink]="isLoading() ? null : '/quizz'"
+      [state]="{ questions: questions() }"
+      class="mt-4 button">
+      Démarrer
+    </a>
+  } @else {
+    <h1 class="text-center">Impossible de récuperer les questions</h1>
+    <h5 class="mt-4">Réessayez plus tard</h5>
+  }
+</div>
+<div id="score" class="flex flex-col justify-between items-center gap-8">
+  <div class="mt-4">
+    @if (isLoading()) {
+      <app-spinner />
+    }
+  </div>
+  <div
+    class="bg-white flex flex-col justify-center px-6 py-4 rounded-t-lg text-center text-blue-950 gap-2 h-[9.6875rem]">
+    <span>🏆</span>
+    <h4>Meilleur score</h4>
+    <h2>{{ formattedBestScore() }}</h2>
+  </div>
+</div>

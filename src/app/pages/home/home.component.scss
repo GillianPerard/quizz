@@ -1,0 +1,17 @@
+:host {
+  grid-template-rows: 1fr min-content 1fr;
+  @apply grid h-full px-4;
+
+
+  #logo {
+    grid-row: 1;
+  }
+
+  #title {
+    grid-row: 2;
+  }
+
+  #score {
+    grid-row: 3;
+  }
+}
