@@ -1,0 +1,17 @@
+
+:host {
+  grid-template-rows: min-content 1fr;
+  @apply grid h-full;
+
+  header {
+    grid-row: 1;
+  }
+
+  main {
+    grid-row: 2;
+  }
+
+  .tag {
+    @apply bg-white rounded-lg text-blue-950 text-2xl font-semibold p-2;
+  }
+}

@@ -1,0 +1,38 @@
+<header class="flex justify-between gap-8 py-4 px-6">
+  <span class="tag">Question {{ step() }}</span>
+  <span class="tag">{{ formattedCountdown() }}</span>
+</header>
+<main class="bg-white sm:pt-11 h-auto">
+  @if (currentQuestion(); as question) {
+    <div class="max-w-5xl mx-auto px-4 py-8 h-full flex flex-col justify-between">
+      <h2 class="sm:px-6 sm:py-5 text-center sm:text-left">{{ question.label }}</h2>
+      @switch (question.answerType) {
+        @case (AnswerType.Text) {
+          <div class="max-w-3xl mx-auto w-full">
+            <app-input
+              label="Votre réponse"
+              [name]="'question-' + currentQuestionIndex()"
+              [value]="currentAnswer()"
+              (enter)="handleValidate()"
+              (valueChange)="updateAnswer($event)" />
+          </div>
+        }
+        @default {
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            @for (choice of question.choices; track $index) {
+              <app-check
+                [checked]="isChecked(choice)"
+                [name]="'question-' + currentQuestionIndex()"
+                (check)="updateAnswer($event)"
+                [radio]="question.answerType === AnswerType.Choice"
+                [value]="choice">
+                {{ choice }}
+              </app-check>
+            }
+          </div>
+        }
+      }
+      <button class="mx-auto" type="button" (click)="handleValidate()">Valider</button>
+    </div>
+  }
+</main>

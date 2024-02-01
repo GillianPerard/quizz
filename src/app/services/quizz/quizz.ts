@@ -22,3 +22,11 @@ export interface TextQuestion {
 
 export type Question = ChoiceQuestion | MultipleChoiceQuestion | TextQuestion;
 export type Questions = Array<Question>;
+
+export type UserAnswer = string | Array<string>;
+export type UserAnswers = Array<UserAnswer>;
+
+export interface QuizzResult {
+  questions: Array<[string, boolean]>;
+  score: number;
+}
