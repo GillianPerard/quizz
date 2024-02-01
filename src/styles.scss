@@ -3,14 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Public+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Public+Sans:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&&display=swap');
 
 * {
   font-family: Roboto, sans-serif;
 }
 
-h1, h2, h4, h5 {
+.inter {
+  font-family: Inter, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
   font-family: Inter, sans-serif;
   @apply text-blue-950;
 }
@@ -22,6 +26,10 @@ h1 {
 
 h2 {
   @apply font-semibold text-2xl;
+}
+
+h3 {
+  @apply font-semibold text-[1.1875rem];
 }
 
 h4 {

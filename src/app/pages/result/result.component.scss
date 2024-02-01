@@ -1,0 +1,13 @@
+
+:host {
+  grid-template-rows: min-content 1fr;
+  @apply grid h-full;
+
+  header {
+    grid-row: 1;
+  }
+
+  main {
+    grid-row: 2;
+  }
+}
