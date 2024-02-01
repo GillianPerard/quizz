@@ -1,0 +1,23 @@
+:host {
+  @apply
+  flex
+  gap-4
+  justify-between
+  px-4
+  rounded-lg
+  text-sm
+  text-blue-950
+  items-center
+  focus-within:ring-2
+  ring-blue-950
+  relative
+  transition-colors;
+
+  &:has(input:not(:checked)) {
+    @apply bg-blue-100 hover:bg-blue-200;
+  }
+
+  &:has(input:checked) {
+    @apply bg-blue-200;
+  }
+}
