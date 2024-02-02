@@ -1,0 +1,11 @@
+<label [for]="name()" class="bg-white relative z-1 text-[.6875rem] ml-4 px-1 text-gray-500">
+  {{ label() }}
+</label>
+<input
+  [id]="name()"
+  [name]="name"
+  [value]="value() ?? ''"
+  type="text"
+  class="border border-gray-300 focus:ring-2 ring-blue-950 outline-none rounded h-14 w-full px-3 mt-[-0.625rem]"
+  (input)="handleValueChange($event)"
+  (keydown.enter)="handleEnter($event)" />

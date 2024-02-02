@@ -1,0 +1,62 @@
+<header class="h-20"></header>
+<main class="bg-white p-6 flex flex-col justify-between">
+  <div class="flex flex-col md:flex-row gap-4">
+    <div class="flex flex-col items-center gap-6 py-4 md:py-8 flex-1">
+      <div class="flex flex-col gap-2 text-center">
+        <span class="text-2xl">🎉</span>
+        <h2>Le Quiz est terminé !</h2>
+      </div>
+      <div class="text-blue-500 text-center font-black">
+        <div class="inter text-[5.25rem]">{{ formattedScore() }}</div>
+        <div class="inter text-[2rem] -mt-6">réponses justes</div>
+      </div>
+      <div class="flex gap-2 items-center text-sm">
+        <span class="text-blue-950">Meilleure score : {{ formattedBestScore() }}</span>
+        @if (isNewRecord()) {
+          <div class="rounded-lg bg-green-50 px-3 py-2 text-green-400">New!</div>
+        }
+      </div>
+    </div>
+    <div class="md:pt-16 pb-8 flex flex-col gap-6 flex-1">
+      <h3>Détail des résultats :</h3>
+      <div class="flex flex-col ml-4 gap-6">
+        @for (question of result().questions; track $index) {
+          <div class="text-sm text-blue-950 flex items-center gap-2">
+            {{ question[0] }}
+            <div>
+              @if (question[1]) {
+                <svg
+                  width="11"
+                  height="8"
+                  viewBox="0 0 11 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1 4.0862L3.94093 7L10 1"
+                    stroke="#54BDB8"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              } @else {
+                <svg
+                  width="9"
+                  height="10"
+                  viewBox="0 0 9 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M1.28033 0.95041C0.987437 0.657516 0.512563 0.657516 0.21967 0.95041C-0.0732233 1.2433 -0.0732233 1.71818 0.21967 2.01107L3.20884 5.00024L0.220139 7.98893C-0.0727538 8.28183 -0.0727538 8.7567 0.220139 9.04959C0.513033 9.34249 0.987906 9.34249 1.2808 9.04959L4.2695 6.0609L7.25819 9.04959C7.55109 9.34249 8.02596 9.34249 8.31885 9.04959C8.61175 8.7567 8.61175 8.28183 8.31885 7.98893L5.33016 5.00024L8.31932 2.01107C8.61222 1.71818 8.61222 1.2433 8.31932 0.95041C8.02643 0.657516 7.55156 0.657516 7.25866 0.95041L4.2695 3.93958L1.28033 0.95041Z"
+                    fill="#FF5670" />
+                </svg>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  <a class="mt-4 mx-auto button col-span-2 self-end" routerLink="/">Retourner à l'accueil</a>
+</main>

@@ -1,0 +1,16 @@
+<ng-content />
+<input
+  [type]="type()"
+  [name]="name()"
+  [checked]="checked()"
+  class="opacity-0 absolute inset-0 cursor-pointer"
+  (change)="handleChange()" />
+<div class="relative h-14 w-14 flex items-center justify-center pointer-events-none">
+  <div
+    class="border-2 h-5 w-5 flex justify-center items-center border-gray-900/60"
+    [ngClass]="radio() ? 'rounded-full' : 'rounded'">
+    @if (checked()) {
+      <div class="h-3 w-3 bg-gray-900/60" [ngClass]="radio() ? 'rounded-full' : 'rounded-sm'"></div>
+    }
+  </div>
+</div>
